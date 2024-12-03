@@ -18,10 +18,10 @@
         <br>
         <!-- Input for år -->
         <label for="movie-year">År:</label>
-        <input type="number" id="movie-year" placeholder="Skriv inn utgivelsesåret">
+        <input type="text" id="movie-year" placeholder="Skriv inn utgivelsesåret">
         <br>
         
-        <!-- Knappene for å legge til og vise filmer -->
+        <!-- Knappene for å legge til og vise filmer --> 
         <button id="add-movie-btn">Legg til film i array</button>
         <button id="show-movies-btn">Vis alle filmer</button>
         <div id="error-message" style="color: red; margin-top: 10px;"></div>
@@ -34,27 +34,27 @@
 
         // Funksjon for å legge til en film i arrayet
         function leggTilFilm() {
-            const tittelInput = document.getElementById('movie-title');
-            const årInput = document.getElementById('movie-year');
-            const kategoriInput = document.getElementById('movie-category');
-            const feilmelding = document.getElementById('error-message');
+        const tittelInput = document.getElementById('movie-title');
+        const årInput = document.getElementById('movie-year');
+        const kategoriInput = document.getElementById('movie-category');
+        const feilmelding = document.getElementById('error-message');
 
-            // Leser inn verdiene fra inputfeltene
-            const tittel = tittelInput.value.trim();
-            const år = årInput.value.trim();
-            const kategori = kategoriInput.value.trim();
+        // Leser inn verdiene fra inputfeltene
+        const tittel = tittelInput.value.trim();
+        const år = årInput.value.trim();
+        const kategori = kategoriInput.value.trim();
 
-            // Dette vil da validere feltene
-            if (tittel === '' || år === '' || kategori === '') {
-                feilmelding.textContent = "Vennligst fyll ut tittel, år og kategori! (denne bekjeden vil forsvinner etter 3 sekunder";
-                // Feilmelding forsvinner etter 3 sekunder
-                setTimeout(function() {
-                    feilmelding.textContent = '';
-                }, 3000);
-            } else {
+        // Dette vil da validere feltene
+        if (tittel === '' || år === '' || kategori === '') {
+        feilmelding.textContent = "Vennligst fyll ut tittel, år og kategori!";
+        // Feilmelding forsvinner etter 3 sekunder
+        setTimeout(function() {
+            feilmelding.textContent = '';
+        }, 3000);
+        } else {
                 // Fjerner feilmelding og legger til filmen i arrayet 
-                feilmelding.textContent = '';
-                filmer.push({ tittel: tittel, år: år, kategori: kategori });
+             feilmelding.textContent = '';
+             filmer.push({ tittel: tittel, år: år, kategori: kategori });
 
                 // Tømmer inputfeltene etter at filmen er lagt til 
                 tittelInput.value = '';
@@ -65,8 +65,8 @@
 
         // Funksjon for å vise filmene på skjermen
         function visFilmer() {
-            const filmListe = document.getElementById('movies-list');
-            filmListe.innerHTML = ''; 
+        const filmListe = document.getElementById('movies-list');
+        filmListe.innerHTML = ''; 
 
             // Hvis det ikke finnes noen filmer, vis en beskjed
             if (filmer.length === 0) {
