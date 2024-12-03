@@ -71,25 +71,25 @@
 
         // Funksjon for å flytte en bil med tilfeldig hastighet
         function flyttBil(posisjon) {
-            const hastighet = Math.random() * 10; // Tilfeldig hastighet
-            return posisjon + hastighet; // Hadde litt tvil om den return her, men ser at den ikke avbryter flyten på funksjonen eller avslutter den tidlig.
+        const hastighet = Math.random() * 10; // Tilfeldig hastighet
+        return posisjon + hastighet; // Hadde litt tvil om den return her, men ser at den ikke avbryter flyten på funksjonen eller avslutter den tidlig.
         }
 
         // Flytt spillerens bil manuelt
         function flyttSpillerBil() {
-            const tilfeldigHastighet = Math.random() * 18; // Tilfeldig avstand
-            posisjoner[0] += tilfeldigHastighet;
-            biler[0].style.left = `${posisjoner[0]}px`; // Oppdater bilens posisjon
-            sjekkVinner(); // Sjekk om vi har en vinner
+        const tilfeldigHastighet = Math.random() * 18; // Tilfeldig avstand
+        posisjoner[0] += tilfeldigHastighet;
+        biler[0].style.left = `${posisjoner[0]}px`; // Oppdater bilens posisjon
+        sjekkVinner(); // Sjekk om vi har en vinner
         }
 
         // Start løpet
         function startLøp() {
-            vinnerMelding.textContent = ""; // Fjern gammel melding
-            løpsInterval = setInterval(function() {
-                posisjoner[1] = flyttBil(posisjoner[1]); // Flytt motstanderens bil
-                biler[1].style.left = `${posisjoner[1]}px`;
-                sjekkVinner(); // Sjekk om motstanderen har vunnet
+        vinnerMelding.textContent = ""; // Fjern gammel melding
+        løpsInterval = setInterval(function() {
+        posisjoner[1] = flyttBil(posisjoner[1]); // Flytt motstanderens bil
+        biler[1].style.left = `${posisjoner[1]}px`;
+        sjekkVinner(); // Sjekk om motstanderen har vunnet
             }, 100);
         }
 
